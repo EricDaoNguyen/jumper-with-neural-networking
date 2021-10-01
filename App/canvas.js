@@ -14,12 +14,9 @@ function preload() {
 // Canvas
 function setup() {
   createCanvas(1000, 1000)
-
   backgroundMusic.play()
   backgroundMusic.loop()
-
   jumper = new Jumper()
-
   blockers.push(new Blocker())
 }
 
@@ -27,13 +24,11 @@ function setup() {
 function draw() {
   background(0);
   image(imageBackground, 0, 0)
-
   jumper.show()
   jumper.update()
 
   // New set of blockers every 80 frames per second
   if(frameCount % 80 === 0) { blockers.push(new Blocker()) }
-
   for(let i = blockers.length - 1; i >= 0; i--) {
     blockers[i].show()
     blockers[i].update()
