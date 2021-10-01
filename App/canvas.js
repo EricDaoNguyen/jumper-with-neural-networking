@@ -16,6 +16,9 @@ function draw() {
   jumper.show()
   jumper.update()
 
+  // New set of blockers every 80 frames per second
+  if(frameCount % 80 === 0) { blockers.push(new Blocker()) }
+
   for(let i = 0; i < blockers.length; i++) {
     blockers[i].show()
     blockers[i].update()
