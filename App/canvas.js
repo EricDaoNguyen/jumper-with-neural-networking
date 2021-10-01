@@ -30,6 +30,6 @@ function draw() {
       console.log(`Current length of blockers array: ${blockers.length}`)
     }
 
-    if(blockers[i].hit(jumper)) { console.log(`HIT`) }
+    if(blockers[i].hit(jumper)) { gameOver() }
   }
 }

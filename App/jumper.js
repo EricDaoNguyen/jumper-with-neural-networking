@@ -25,7 +25,11 @@ function Jumper() {
     this.velocity += this.gravity
     this.y += this.velocity
 
-    // Jumper stops at bottom of canvas
+    // Prevents jumper from going off top and bottom of canvas
+    if(this.y < 0) {
+      this.y = 0
+      this.velocity = 0
+    }
     if(this.y > height) {
       this.y = height
       this.velocity = 0

@@ -1,5 +1,6 @@
 function keyPressed() {
-  if(key === ' ') {
+  if(key === ` `) {
     jumper.up()
+    if(isOver) { reset() }
   }
 }
