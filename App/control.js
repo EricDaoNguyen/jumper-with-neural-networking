@@ -19,4 +19,10 @@ function keyPressed() {
     imageBackground.resize(1500, 1500)
     reset()
   }
+  if(key === `4`) {
+    backgroundMusic.stop()
+  }
+  if(key === `5`) {
+    backgroundMusic.play()
+  }
 }

@@ -2,16 +2,21 @@ let jumper
 let jumperSprite
 let blockers = []
 let imageBackground
+let backgroundMusic
 
-// Preloads background
+// Preloads
 function preload() {
   imageBackground = loadImage(`../assets/background.jpg`)
   jumperSprite = loadImage(`../assets/goat.png`)
+  backgroundMusic = loadSound(`../assets/backgroundMusic.mp3`)
 }
 
 // Canvas
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(1000, 1000)
+
+  backgroundMusic.play()
+  backgroundMusic.loop()
 
   jumper = new Jumper()
 
