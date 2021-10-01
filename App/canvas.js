@@ -1,3 +1,4 @@
+let jumper
 let blockers = []
 
 // Canvas
@@ -28,5 +29,7 @@ function draw() {
       blockers.splice(i, 1)
       console.log(`Current length of blockers array: ${blockers.length}`)
     }
+
+    if(blockers[i].hit(jumper)) { console.log(`HIT`) }
   }
 }

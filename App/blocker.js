@@ -26,4 +26,14 @@ function Blocker() {
     if(this.x < -this.blockerWidth) { return true }
     else { return false }
   }
+
+  this.hit = function(jumper) {
+    // Checks to see if jumper hits sides of blockers
+    if(jumper.y < this.top || jumper.y > height - this.bottom) {
+      // Checks to see if jumper hits within the blockers' spacing
+      if(jumper.x > this.x && jumper.x < this.x + this.blockerWidth) { return true }
+    }
+
+    return false
+  }
 }
