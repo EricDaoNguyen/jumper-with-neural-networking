@@ -15,8 +15,8 @@ function Jumper() {
     ellipse(this.x, this.y, 20, 20)
   }
 
+  // Jumper jumps
   this.up = function() {
-    // Jumper jumps
     this.velocity -= this.lift + 3
   }
 
