@@ -1,6 +1,6 @@
 // Canvas
 function setup() {
-  createCanvas(750, 750);
+  createCanvas(500, 500);
   jumper = new Jumper()
 }
 

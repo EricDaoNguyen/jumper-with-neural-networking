@@ -5,9 +5,9 @@ function Jumper() {
   this.y = height / 2
 
   // Push and pull force
-  this.gravity = 0.7
-  this.lift = 15
-  this.velocity = 0
+  this.gravity = 0.5
+  this.lift = 10.5
+  this.velocity = -8.5
 
   // Jumper sprite
   this.show = function() {
@@ -16,7 +16,8 @@ function Jumper() {
   }
 
   this.up = function() {
-    this.velocity -= this.lift
+    // Jumper jumps
+    this.velocity -= this.lift + 3
   }
 
   this.update = function() {
