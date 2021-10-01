@@ -1,7 +1,7 @@
 // Jumper
 function Jumper() {
   // Starting position
-  this.x = 64
+  this.x = 128
   this.y = height / 2
 
   // Push and pull force
@@ -10,10 +10,10 @@ function Jumper() {
   this.velocity = -8.5
 
   // Jumper sprite
-  this.show = function() {
-    fill(255)
-    ellipse(this.x, this.y, 30, 30)
-  }
+  this.icon = jumperSprite
+  this.height = 128
+  this.width = 128
+  this.show = function() { image(this.icon, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height) }
 
   // Jumper jumps
   this.up = function() {

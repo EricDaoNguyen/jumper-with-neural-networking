@@ -1,7 +1,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  background-color: gray;
+  background-color: black;
   margin: 0;
   display: flex;
   justify-content: space-evenly;
@@ -14,5 +14,10 @@ canvas {
 }
 
 .instructions {
-  background-color: white;
+  background-color: rgba(255, 192, 203, 0.815);
+}
+
+.text {
+  color: white;
+  background-color: pink;
 }

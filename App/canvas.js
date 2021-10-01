@@ -1,5 +1,13 @@
 let jumper
+let jumperSprite
 let blockers = []
+let imageBackground
+
+// Preloads background
+function preload() {
+  imageBackground = loadImage(`../assets/background.jpg`)
+  jumperSprite = loadImage(`../assets/goat.png`)
+}
 
 // Canvas
 function setup() {
@@ -13,6 +21,7 @@ function setup() {
 // Renderer
 function draw() {
   background(0);
+  image(imageBackground, 0, 0)
 
   jumper.show()
   jumper.update()

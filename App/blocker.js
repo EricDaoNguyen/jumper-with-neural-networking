@@ -9,14 +9,12 @@ function Blocker() {
   // Speed of blockers
   this.speed = 4
 
-  // Highlight blockers, off by default
-  this.highlight = false
-
   // Blocker sprites
   this.show = function() {
-    fill(255)
-    rect(this.x, 0, this.blockerWidth, this.top) // Top blocker
-    rect(this.x, height - this.bottom, this.blockerWidth, this.bottom) // Bottom blocker
+    fill(255, 105, 180)
+    rect(this.x, 0, this.blockerWidth, this.top, 10) // Top blocker
+    rect(this.x, height - this.bottom, this.blockerWidth, this.bottom, 10) // Bottom blocker
+    stroke(color(255, 20, 147));
   }
 
   // Move blockers towards jumper
