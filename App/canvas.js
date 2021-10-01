@@ -19,8 +19,14 @@ function draw() {
   // New set of blockers every 80 frames per second
   if(frameCount % 80 === 0) { blockers.push(new Blocker()) }
 
-  for(let i = 0; i < blockers.length; i++) {
+  for(let i = blockers.length - 1; i >= 0; i--) {
     blockers[i].show()
     blockers[i].update()
+
+    // Remove blockers as soon as they are off left of canvas
+    if(blockers[i].offCanvas()) {
+      blockers.splice(i, 1)
+      console.log(`Current length of blockers array: ${blockers.length}`)
+    }
   }
 }

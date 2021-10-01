@@ -20,4 +20,10 @@ function Blocker() {
   this.update = function() {
     this.x -= this.speed
   }
+
+  // Removed blockers that pass the left of canvas to avoid stacking the array length
+  this.offCanvas = function() {
+    if(this.x < -this.blockerWidth) { return true }
+    else { return false }
+  }
 }
