@@ -4,10 +4,10 @@ function Blocker() {
   this.x = width
   this.top = random(height / 2)
   this.bottom = random(height / 2)
-  this.blockerWidth = 30
+  this.blockerWidth = 70
 
   // Speed of blockers
-  this.speed = 2
+  this.speed = 4
 
   // Highlight blockers, off by default
   this.highlight = false

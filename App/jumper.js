@@ -12,7 +12,7 @@ function Jumper() {
   // Jumper sprite
   this.show = function() {
     fill(255)
-    ellipse(this.x, this.y, 20, 20)
+    ellipse(this.x, this.y, 30, 30)
   }
 
   // Jumper jumps

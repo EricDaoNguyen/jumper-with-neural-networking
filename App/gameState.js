@@ -1,7 +1,8 @@
 let isOver = false
 
 function gameOver() {
-  textSize(32)
+  textSize(64)
+  fill(255, 0, 0)
   textAlign(CENTER, CENTER)
   text(`GAME OVER`, height / 2, width / 2)
   isOver = true
