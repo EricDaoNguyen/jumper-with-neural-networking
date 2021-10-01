@@ -32,13 +32,11 @@ function draw() {
   for(let i = blockers.length - 1; i >= 0; i--) {
     blockers[i].show()
     blockers[i].update()
-
     // Remove blockers as soon as they are off left of canvas
     if(blockers[i].offCanvas()) {
       blockers.splice(i, 1)
       console.log(`Current length of blockers array: ${blockers.length}`)
     }
-
     if(blockers[i].hit(jumper)) { gameOver() }
   }
 }

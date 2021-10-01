@@ -16,9 +16,7 @@ function Jumper() {
   this.show = function() { image(this.icon, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height) }
 
   // Jumper jumps
-  this.up = function() {
-    this.velocity -= this.lift + 3
-  }
+  this.up = function() { this.velocity -= this.lift + 3 }
 
   this.update = function() {
     // Jumper falls

@@ -1,5 +1,6 @@
 let isOver = false
 
+// Game over
 function gameOver() {
   textSize(64)
   fill(255, 0, 0)
@@ -10,6 +11,7 @@ function gameOver() {
   noLoop()
 }
 
+// Reset the game
 function reset() {
   isOver = false
   jumper = new Jumper()

@@ -18,9 +18,7 @@ function Blocker() {
   }
 
   // Move blockers towards jumper
-  this.update = function() {
-    this.x -= this.speed
-  }
+  this.update = function() { this.x -= this.speed }
 
   // Removed blockers that pass the left of canvas to avoid stacking the array length
   this.offCanvas = function() {
@@ -34,7 +32,6 @@ function Blocker() {
       // Checks to see if jumper hits within the blockers' spacing
       if(jumper.x > this.x && jumper.x < this.x + this.blockerWidth) { return true }
     }
-
     return false
   }
 }
