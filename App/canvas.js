@@ -1,11 +1,12 @@
 // Canvas
 function setup() {
   createCanvas(750, 750);
-  background(0);
+  jumper = new Jumper()
 }
 
 // Renderer
 function draw() {
-  jumper = new Jumper()
+  background(0);
   jumper.show()
+  jumper.update()
 }
