@@ -26,6 +26,7 @@ function draw() {
   image(imageBackground, 0, 0)
   jumper.show()
   jumper.update()
+  jumper.think(blockers)
 
   // New set of blockers every 80 frames per second
   if(frameCount % 80 === 0) { blockers.push(new Blocker()) }

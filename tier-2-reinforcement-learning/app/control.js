@@ -1,7 +1,7 @@
 // Controls
 function keyPressed() {
   if(key === ` `) {
-    jumper.up()
+    // jumper.up()
     if(isOver) { reset() }
   }
   if(key === `1`) {

@@ -14,6 +14,9 @@ class Jumper {
     this.icon = jumperSprite
     this.height = 128
     this.width = 128
+
+    // Jumper brain
+    this.brain = new NeuralNetwork(4, 4, 1)
   }
 
   // Show jumper sprite
@@ -36,5 +39,16 @@ class Jumper {
       this.y = height
       this.velocity = 0
     }
+  }
+
+  // Allows jumper to jump on it's own
+  think(blockers) {
+    let input = []
+    input[0] = this.y
+    input[1] = blockers[0].top
+    input[2] = blockers[0].bottom
+    input[3] = blockers[0].x
+    let output = this.brain.predict(input)
+    if(output > 0.5) { this.up() }
   }
 }
