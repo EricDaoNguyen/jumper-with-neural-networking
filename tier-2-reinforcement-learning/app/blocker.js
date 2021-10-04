@@ -8,7 +8,7 @@ class Blocker {
     this.blockerWidth = 70
 
     // Speed of blockers
-    this.speed = 4
+    this.speed = 7
   }
 
   // Blocker sprites

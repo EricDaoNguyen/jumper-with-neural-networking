@@ -16,6 +16,8 @@ function calculateFitness() {
 
 // Simplified crossover, instead of combining data of two parents, we're just making a copy
 function pickJumper() {
-  let child = random(savedJumpers)
+  let jumper = random(savedJumpers)
+  let child = new Jumper(jumper.brain)
+  child.mutate()
   return child
 }

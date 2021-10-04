@@ -5,6 +5,7 @@ let savedJumpers = []
 let blockers = []
 let imageBackground
 let backgroundMusic
+let counter = 0
 
 // Preloads
 function preload() {
@@ -27,16 +28,24 @@ function draw() {
   background(0);
   image(imageBackground, 0, 0)
 
+  // New set of blockers every 80 frames per second
+  if(counter % 80 === 0) { blockers.push(new Blocker()) }
+  counter++
+
+  // New set of jumpers
   for(let jumper of jumpers) {
     jumper.show()
     jumper.update()
     jumper.think(blockers)
   }
 
-  if(jumpers.length === 0) { nextGeneration() }
+  // Reset with the next generation when all jumpers are eliminated
+  if(jumpers.length === 0) {
+    counter = 0
+    nextGeneration()
+    blockers = []
+  }
 
-  // New set of blockers every 80 frames per second
-  if(frameCount % 80 === 0) { blockers.push(new Blocker()) }
   for(let i = blockers.length - 1; i >= 0; i--) {
     blockers[i].show()
     blockers[i].update()

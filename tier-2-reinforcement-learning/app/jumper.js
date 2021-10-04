@@ -1,6 +1,6 @@
 // Jumper
 class Jumper {
-  constructor() {
+  constructor(brain) {
     // Starting position
     this.x = 128
     this.y = height / 2
@@ -21,6 +21,10 @@ class Jumper {
     // Each jumper's score increases the longer it stays alive
     this.score = 0
     this.fitness = 0
+
+    // Create a copy if jumper's brain exist
+    if(brain) { this.brain = brain.copy() }
+    else {this.brain = new NeuralNetwork(4, 4, 2)}
   }
 
   // Show jumper sprite
