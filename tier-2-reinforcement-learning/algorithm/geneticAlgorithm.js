@@ -4,7 +4,7 @@ function nextGeneration() {
   calculateFitness()
   for(let i = 0; i < totalJumpers; i++) { jumpers[i] = pickJumper() }
   savedJumpers = []
-  console.log(`New generation loaded: ${jumpers}`)
+  console.log(`New generation loaded.`)
 }
 
 // Each fitness value is a probability for the next generation
