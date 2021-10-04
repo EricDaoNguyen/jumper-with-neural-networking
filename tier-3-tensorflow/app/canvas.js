@@ -1,6 +1,6 @@
 let jumpers = []
 let jumperSprite
-const totaljumpers = 100
+const totaljumpers = 500
 let savedJumpers = []
 let blockers = []
 let imageBackground

@@ -6,17 +6,14 @@ class Jumper {
     this.y = height / 2
 
     // Push and pull force
-    this.gravity = 0.5
-    this.lift = 10.5
-    this.velocity = -8.5
+    this.gravity = 0.8
+    this.lift = -12
+    this.velocity = 0
 
     // Jumper sprite
     this.icon = jumperSprite
     this.height = 128
     this.width = 128
-
-    // Jumper brain
-    this.brain = new NeuralNetwork(5, 8, 2)
 
     // Each jumper's score increases the longer it stays alive
     this.score = 0
@@ -24,14 +21,14 @@ class Jumper {
 
     // Create a copy if jumper's brain exist
     if(brain) { this.brain = brain.copy() }
-    else {this.brain = new NeuralNetwork(4, 4, 2)}
+    else {this.brain = new NeuralNetwork(5, 8, 2)}
   }
 
   // Show jumper sprite
   show() { image(this.icon, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height) }
 
   // Jumper jumps
-  up() { this.velocity -= this.lift + 3 }
+  up() { this.velocity += this.lift}
 
   update() {
     // Jumper falls
@@ -69,6 +66,7 @@ class Jumper {
     input[1] = closestBlocker.top / height
     input[2] = closestBlocker.bottom / height
     input[3] = closestBlocker.x / width
+    input[4] = this.velocity / 2.5
     let output = this.brain.predict(input)
     if(output[0] > output[1]) { this.up() }
   }

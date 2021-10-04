@@ -17,20 +17,17 @@ class NeuralNetwork {
 
   createModel() {
     const model = tf.sequential()
-
     const hidden = tf.layers.dense({
       units: this.hidden_nodes,
       inputShape: [this.input_nodes],
       activation: 'sigmoid'
     })
     model.add(hidden)
-
     const output = tf.layers.dense({
       units: this.output_nodes,
       activation: 'softmax'
     })
     model.add(output)
-
     return model
   }
 
@@ -52,9 +49,7 @@ class NeuralNetwork {
       const modelCopy = this.createModel()
       const weights = this.model.getWeights()
       const weightedCopies = []
-      for(let i = 0; i < weights.length; i++) {
-        weightedCopies[i] = weights[i].clone()
-      }
+      for(let i = 0; i < weights.length; i++) { weightedCopies[i] = weights[i].clone() }
       modelCopy.setWeights(weightedCopies)
       return new NeuralNetwork(modelCopy, this.input_nodes, this.hidden_nodes, this.output_nodes)
     })
@@ -71,8 +66,10 @@ class NeuralNetwork {
         let shape = weights[i].shape
         let values = tensor.dataSync().slice()
         for (let j = 0; j < values.length; j++) {
-          let w = values[j]
-          if(random(1) < rate) { values[j] = w.randomGaussian () }
+          if(random(1) < rate) {
+            let w = values[j]
+            values[j] = w + randomGaussian()
+          }
         }
         let newTensor = tf.tensor(values, shape)
         mutatedWeights[i] = newTensor
