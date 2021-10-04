@@ -32,6 +32,8 @@ function draw() {
     jumper.think(blockers)
   }
 
+  if(jumpers.length === 0) { nextGeneration() }
+
   // New set of blockers every 80 frames per second
   if(frameCount % 80 === 0) { blockers.push(new Blocker()) }
   for(let i = blockers.length - 1; i >= 0; i--) {
