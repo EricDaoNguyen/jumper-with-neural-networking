@@ -18,15 +18,6 @@ function Jumper() {
   // Jumper jumps
   this.up = function() { this.velocity -= this.lift + 3 }
 
-  // Jumper jumps on it's own
-  this.brain = new NeuralNetwork(4, 4, 1)
-  this.think = function() {
-    let input = [1.0, 0.5, 0.2, 0.3]
-    let output = this.brain.predict(input)
-
-    if(output > 0.5) { Jumper.up() }
-  }
-
   this.update = function() {
     // Jumper falls
     this.velocity += this.gravity
