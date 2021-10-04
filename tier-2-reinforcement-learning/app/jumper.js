@@ -16,7 +16,7 @@ class Jumper {
     this.width = 128
 
     // Jumper brain
-    this.brain = new NeuralNetwork(4, 4, 1)
+    this.brain = new NeuralNetwork(4, 4, 2)
   }
 
   // Show jumper sprite
@@ -60,6 +60,6 @@ class Jumper {
     input[2] = closestBlocker.bottom / height
     input[3] = closestBlocker.x / width
     let output = this.brain.predict(input)
-    if(output[0] > 0.5) { this.up() }
+    if(output[0] > output[1]) { this.up() }
   }
 }

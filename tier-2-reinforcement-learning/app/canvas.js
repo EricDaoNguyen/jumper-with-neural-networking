@@ -1,6 +1,6 @@
 let jumpers = []
 let jumperSprite
-const totaljumpers = 100
+const totaljumpers = 200
 let blockers = []
 let imageBackground
 let backgroundMusic
@@ -43,5 +43,10 @@ function draw() {
       console.log(`Current length of blockers array: ${blockers.length}`)
     }
     if(blockers[i].hit(jumpers)) { gameOver() }
+
+    // Eliminate jumpers that hit a blocker
+    for(let j = jumpers.length - 1; j >= 0; j--) {
+      if(blockers[i].hit(jumpers[j])) { jumpers.splice(j, 1) }
+    }
   }
 }
