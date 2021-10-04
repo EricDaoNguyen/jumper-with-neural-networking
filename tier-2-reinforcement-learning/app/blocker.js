@@ -28,11 +28,11 @@ class Blocker {
     else { return false }
   }
 
-  hit(jumper) {
+  hit(jumpers) {
     // Checks to see if jumper hits sides of blockers
-    if(jumper.y < this.top || jumper.y > height - this.bottom) {
+    if(jumpers.y < this.top || jumpers.y > height - this.bottom) {
       // Checks to see if jumper hits within the blockers' spacing
-      if(jumper.x > this.x && jumper.x < this.x + this.blockerWidth) { return true }
+      if(jumpers.x > this.x && jumpers.x < this.x + this.blockerWidth) { return true }
     }
     return false
   }

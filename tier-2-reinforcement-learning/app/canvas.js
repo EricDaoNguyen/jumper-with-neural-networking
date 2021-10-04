@@ -1,5 +1,6 @@
-let jumper
+let jumpers = []
 let jumperSprite
+const totaljumpers = 100
 let blockers = []
 let imageBackground
 let backgroundMusic
@@ -16,7 +17,7 @@ function setup() {
   createCanvas(1000, 1000)
   backgroundMusic.play()
   backgroundMusic.loop()
-  jumper = new Jumper()
+  for(let i = 0; i < totaljumpers; i++) { jumpers[i] = new Jumper() }
   blockers.push(new Blocker())
 }
 
@@ -24,9 +25,12 @@ function setup() {
 function draw() {
   background(0);
   image(imageBackground, 0, 0)
-  jumper.show()
-  jumper.update()
-  jumper.think(blockers)
+
+  for(let jumper of jumpers) {
+    jumper.show()
+    jumper.update()
+    jumper.think(blockers)
+  }
 
   // New set of blockers every 80 frames per second
   if(frameCount % 80 === 0) { blockers.push(new Blocker()) }
@@ -38,6 +42,6 @@ function draw() {
       blockers.splice(i, 1)
       console.log(`Current length of blockers array: ${blockers.length}`)
     }
-    if(blockers[i].hit(jumper)) { gameOver() }
+    if(blockers[i].hit(jumpers)) { gameOver() }
   }
 }

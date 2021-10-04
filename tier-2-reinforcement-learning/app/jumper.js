@@ -47,7 +47,7 @@ class Jumper {
     let closestBlocker = null
     let closestDistance = Infinity
     for(let i = 0; i < blockers.length; i++) {
-      let distance = blockers[i].x + blockers[i].blockerWidth - this.x
+      let distance = blockers[i].x - this.x
       if(distance < closestDistance && distance > 0) {
         closestBlocker = blockers[i]
         closestDistance = distance
@@ -60,6 +60,6 @@ class Jumper {
     input[2] = closestBlocker.bottom / height
     input[3] = closestBlocker.x / width
     let output = this.brain.predict(input)
-    if(output > 0.5) { this.up() }
+    if(output[0] > 0.5) { this.up() }
   }
 }
