@@ -17,9 +17,9 @@ function preload() {
 
 // Canvas
 function setup() {
-  createCanvas(1000, 1000)
+  createCanvas(700, 700)
   tf.setBackend('cpu')
-  cycleSlider = createSlider(1, 100, 1)
+  cycleSlider = createSlider(1, 10, 1)
   backgroundMusic.play()
   backgroundMusic.loop()
   for(let i = 0; i < totaljumpers; i++) { jumpers[i] = new Jumper() }

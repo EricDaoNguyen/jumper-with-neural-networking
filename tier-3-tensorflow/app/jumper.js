@@ -16,7 +16,7 @@ class Jumper {
     this.width = 128
 
     // Jumper brain
-    this.brain = new NeuralNetwork(4, 4, 2)
+    this.brain = new NeuralNetwork(5, 8, 2)
 
     // Each jumper's score increases the longer it stays alive
     this.score = 0
