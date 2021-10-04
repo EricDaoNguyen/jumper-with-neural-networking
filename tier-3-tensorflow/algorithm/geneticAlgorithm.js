@@ -1,4 +1,4 @@
-const totalJumpers = 200
+const totalJumpers = 100
 
 function nextGeneration() {
   calculateFitness()
