@@ -1,24 +1,28 @@
 // Jumper
-function Jumper() {
-  // Starting position
-  this.x = 128
-  this.y = height / 2
+class Jumper {
+  constructor() {
+    // Starting position
+    this.x = 128
+    this.y = height / 2
 
-  // Push and pull force
-  this.gravity = 0.5
-  this.lift = 10.5
-  this.velocity = -8.5
+    // Push and pull force
+    this.gravity = 0.5
+    this.lift = 10.5
+    this.velocity = -8.5
 
-  // Jumper sprite
-  this.icon = jumperSprite
-  this.height = 128
-  this.width = 128
-  this.show = function() { image(this.icon, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height) }
+    // Jumper sprite
+    this.icon = jumperSprite
+    this.height = 128
+    this.width = 128
+  }
+
+  // Show jumper sprite
+  show() { image(this.icon, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height) }
 
   // Jumper jumps
-  this.up = function() { this.velocity -= this.lift + 3 }
+  up() { this.velocity -= this.lift + 3 }
 
-  this.update = function() {
+  update() {
     // Jumper falls
     this.velocity += this.gravity
     this.y += this.velocity
