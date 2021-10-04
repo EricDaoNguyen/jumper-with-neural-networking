@@ -43,11 +43,22 @@ class Jumper {
 
   // Allows jumper to jump on it's own
   think(blockers) {
+    // Finds closest blocker
+    let closestBlocker = null
+    let closestDistance = Infinity
+    for(let i = 0; i < blockers.length; i++) {
+      let distance = blockers[i].x + blockers[i].blockerWidth - this.x
+      if(distance < closestDistance && distance > 0) {
+        closestBlocker = blockers[i]
+        closestDistance = distance
+      }
+    }
+
     let input = []
-    input[0] = this.y
-    input[1] = blockers[0].top
-    input[2] = blockers[0].bottom
-    input[3] = blockers[0].x
+    input[0] = this.y / height
+    input[1] = closestBlocker.top / height
+    input[2] = closestBlocker.bottom / height
+    input[3] = closestBlocker.x / width
     let output = this.brain.predict(input)
     if(output > 0.5) { this.up() }
   }
