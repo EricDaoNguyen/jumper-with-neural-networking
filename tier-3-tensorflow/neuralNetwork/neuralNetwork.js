@@ -23,4 +23,12 @@ class NeuralNetwork {
     })
     this.model.add(output)
   }
+
+  // Convert inputs to tensor and return outputs
+  predict(inputs) {
+    const x = tf.tensor2d([inputs])
+    const y = this.model.predict(x)
+    const outputs = y.dataSync()
+    return outputs
+  }
 }

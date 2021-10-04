@@ -1,6 +1,6 @@
 let jumpers = []
 let jumperSprite
-const totaljumpers = 500
+const totaljumpers = 100
 let savedJumpers = []
 let blockers = []
 let imageBackground
@@ -18,6 +18,7 @@ function preload() {
 // Canvas
 function setup() {
   createCanvas(1000, 1000)
+  tf.setBackend('cpu')
   cycleSlider = createSlider(1, 100, 1)
   backgroundMusic.play()
   backgroundMusic.loop()
