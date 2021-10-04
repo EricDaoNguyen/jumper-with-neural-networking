@@ -74,5 +74,5 @@ class Jumper {
   }
 
   // Mutate child's data based on calculated fitness
-  mutate() { this.brain.mutate(0.1) }
+  // mutate() { this.brain.mutate(0.1) }
 }

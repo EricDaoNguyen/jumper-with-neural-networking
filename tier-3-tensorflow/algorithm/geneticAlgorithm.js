@@ -25,6 +25,6 @@ function pickJumper(jumpers) {
   index--
   let jumper = savedJumpers[index]
   let child = new Jumper(jumper.brain)
-  child.mutate()
+  // child.mutate()
   return child
 }
