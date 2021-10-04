@@ -17,6 +17,10 @@ class Jumper {
 
     // Jumper brain
     this.brain = new NeuralNetwork(4, 4, 2)
+
+    // Each jumper's score increases the longer it stays alive
+    this.score = 0
+    this.fitness = 0
   }
 
   // Show jumper sprite
@@ -29,6 +33,9 @@ class Jumper {
     // Jumper falls
     this.velocity += this.gravity
     this.y += this.velocity
+
+    // A jumper's score increments by 1 per blocker passed
+    this.score++
 
     // Prevents jumper from going off top and bottom of canvas
     if(this.y < 0) {
@@ -53,7 +60,6 @@ class Jumper {
         closestDistance = distance
       }
     }
-
     let input = []
     input[0] = this.y / height
     input[1] = closestBlocker.top / height
@@ -62,4 +68,7 @@ class Jumper {
     let output = this.brain.predict(input)
     if(output[0] > output[1]) { this.up() }
   }
+
+  // Mutate child's data based on calculated fitness
+  mutate() { this.brain.mutate(0.1) }
 }
